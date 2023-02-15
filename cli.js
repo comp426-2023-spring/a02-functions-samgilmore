@@ -46,7 +46,7 @@ if (args.z) {
 //Parse day
 var day;
 
-if (args.d) {
+if (args.d == 0 || args.d) {
     day = args.d;
 } else {
     day = 1;
@@ -57,7 +57,7 @@ const data = await response.json();
 
 //Echo pretty JSON from open-meteo API and exit.
 if (args.j) {
-    console.log(JSON.stringify(data, null, 2));
+    console.log(data);
     process.exit(0);
 }
 
@@ -67,7 +67,7 @@ if (args.j) {
 
 var msg;
 if (day == 0) {
-    msg ="today.";
+    msg = "today.";
 } else if (day > 1) {
     msg = "in " + day + " days.";
 } else {
