@@ -20,18 +20,18 @@ if (args.h) {
 var latitude;
 
 if (args.n) {
-    latitude = Math.round((args.n + Number.EPSILON) * 100) / 100;
+    latitude = args.n;
 } else {
-    latitude = -Math.round((args.s + Number.EPSILON) * 100) / 100;
+    latitude = -args.s
 }
 
 //Parse longitude
 var longitude;
 
 if (args.e) {
-    longitude = Math.round((args.e + Number.EPSILON) * 100) / 100;
+    longitude = args.e;
 } else {
-    longitude = -Math.round((args.w + Number.EPSILON) * 100) / 100;
+    longitude = -args.w;
 }
 
 //Parse time zone
