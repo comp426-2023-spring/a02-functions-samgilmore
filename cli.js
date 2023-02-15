@@ -20,24 +20,18 @@ if (args.h) {
 var latitude;
 
 if (args.n) {
-    latitude = args.n;
-} else if (args.s) {
-    latitude = -args.s;
+    latitude = Math.round((args.n + Number.EPSILON) * 100) / 100;
 } else {
-    console.log("Latitude not specified. Use -n or -s.");
-    process.exit(1);
+    latitude = -Math.round((args.s + Number.EPSILON) * 100) / 100;
 }
 
 //Parse longitude
 var longitude;
 
 if (args.e) {
-    longitude = args.e;
-} else if (args.w) {
-    longitude = -args.w;
+    longitude = Math.round((args.e + Number.EPSILON) * 100) / 100;
 } else {
-    console.log("Longitude not specified. Use -e or -w.");
-    process.exit(1);
+    longitude = -Math.round((args.w + Number.EPSILON) * 100) / 100;
 }
 
 //Parse time zone
