@@ -61,21 +61,6 @@ if (args.j) {
     process.exit(0);
 }
 
-// const msg = day === 0 ? "today" : day === 1 ? "tomorrow" : `in ${day} days`;
-// const precipitation_hours = data.daily.precipitation_hours[day];
-// console.log(`You ${precipitation_hours === 0 ? "won't" : "might"} need your galoshes ${msg}.`);
-
-var msg;
-if (day == 0) {
-    msg = "today.";
-} else if (day > 1) {
-    msg = "in " + day + " days.";
-} else {
-    msg = "tomorrow.";
-}
-
-if (data.daily.precipitation_hours[day] == 0) {
-    console.log("You won't need your galoshes " + msg);
-} else {
-    console.log("You might need your galoshes " + msg);
-}
+const msg = day === 0 ? "today" : day === 1 ? "tomorrow" : `in ${day} days`;
+const precipitation_hours = data.daily.precipitation_hours[day];
+console.log(`You ${precipitation_hours === 0 ? "won't" : "might"} need your galoshes ${msg}.`);
