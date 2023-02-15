@@ -16,41 +16,46 @@ if (args.h) {
     process.exit(0);
 }
 
-//Parse latitude
-var latitude;
+// //Parse latitude
+// var latitude;
 
-if (args.n) {
-    latitude = args.n;
-} else {
-    latitude = -args.s
-}
+// if (args.n) {
+//     latitude = args.n;
+// } else {
+//     latitude = -args.s
+// }
 
-//Parse longitude
-var longitude;
+// //Parse longitude
+// var longitude;
 
-if (args.e) {
-    longitude = args.e;
-} else {
-    longitude = -args.w;
-}
+// if (args.e) {
+//     longitude = args.e;
+// } else {
+//     longitude = -args.w;
+// }
 
-//Parse time zone
-var timezone;
+// //Parse time zone
+// var timezone;
 
-if (args.z) {
-    timezone = args.z;
-} else {
-    timezone = moment.tz.guess();
-}
+// if (args.z) {
+//     timezone = args.z;
+// } else {
+//     timezone = moment.tz.guess();
+// }
 
-//Parse day
-var day;
+// //Parse day
+// var day;
 
-if (args.d == 0 || args.d) {
-    day = args.d;
-} else {
-    day = 1;
-}
+// if (args.d == 0 || args.d) {
+//     day = args.d;
+// } else {
+//     day = 1;
+// }
+
+const latitude = args.n || -args.s;
+const longitude = args.e || -args.w;
+const timezone = args.z || moment.tz.guess();
+const day = args.d || 1;
 
 const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&timezone=${timezone}&daily=precipitation_hours`);
 const data = await response.json();
