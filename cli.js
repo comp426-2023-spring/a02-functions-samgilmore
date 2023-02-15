@@ -55,7 +55,7 @@ if (args.h) {
 const latitude = args.n || -args.s;
 const longitude = args.e || -args.w;
 const timezone = args.z || moment.tz.guess();
-const day = args.d || 1;
+const day = args.d === 0 || args.d ? args.d : 1;
 
 const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&timezone=${timezone}&daily=precipitation_hours`);
 const data = await response.json();
